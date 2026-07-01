@@ -32,8 +32,27 @@ namespace FutbolcuScoutAPI.Services
         }
 
         // 3. Buraya kullanıcı sorgulama metodunu ekledik
-        public async Task<User?> GetUserAsync(string username, string password) => //Bana ismi ve şifresi verdiğim kişiyle eşleşen ilk kaydı getir.
-            await _userCollection.Find(u => u.Username == username && u.Password == password).FirstOrDefaultAsync();
+        public async Task<User?> GetUserAsync(string username, string password) //Bana ismi ve şifresi verdiğim kişiyle eşleşen ilk kaydı getir.
+        {
+            // Artık sadece username ile buluyoruz, şifreyi MongoDB'de karşılaştırmıyoruz
+            var user = await _userCollection.Find(u => u.Username == username).FirstOrDefaultAsync();
+            
+            if (user == null) return null;
+
+            //Girilen şifre, veritabanındaki hash ile eşleşiyor mu?
+            bool sifreDogruMu = BCrypt.Net.BCrypt.Verify(password, user.Password);
+
+            return sifreDogruMu ? user : null;
+        } 
+        public async Task CreateUserAsync(User yeniKullanici) //HASH Password alanı 
+        {
+            // BCrypt şifreyi hash'liyor, workFactor(11) ne kadar güçlü olduğunu belirler
+            yeniKullanici.Password = BCrypt.Net.BCrypt.HashPassword(yeniKullanici.Password, workFactor: 4);
+            await _userCollection.InsertOneAsync(yeniKullanici); //şifresi hazırladığımız kullanıcı veritabanına gönderilir
+        }
+
+        public async Task<User?> GetUserByUsernameAsync(string username) =>
+            await _userCollection.Find(u => u.Username == username).FirstOrDefaultAsync(); //ilk eşlenen kaydı getirir
 
         // 1. TÜM FUTBOLCULARI LİSTELEME
         public async Task<List<Futbolcu>> GetAsync() =>

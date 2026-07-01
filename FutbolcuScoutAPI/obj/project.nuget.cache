@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1MCn0B7QlTo=",
+  "dgSpecHash": "zmwfSPLfAgo=",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\OneDrive\\Masaüstü\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.0\\microsoft.aspnetcore.authentication.jwtbearer.9.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.17\\microsoft.aspnetcore.openapi.9.0.17.nupkg.sha512",

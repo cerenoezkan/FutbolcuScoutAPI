@@ -39,4 +39,18 @@ public class AuthController : ControllerBase
         }
         return Unauthorized(); //401 Hata kodu dön, tanımıyoruz 
     }
+
+    [HttpPost("register")] //yeni bir veri ekleme işlemi olduğu için POST , api/auth/register
+    public async Task<IActionResult> Register([FromBody] User yeniKullanici)
+    {
+        // Aynı username var mı kontrol et
+        var mevcutKullanici = await _mongoService.GetUserByUsernameAsync(yeniKullanici.Username);
+        if (mevcutKullanici != null)
+        {
+            return BadRequest(new { message = "Bu kullanıcı adı zaten alınmış!" });
+        }
+
+        await _mongoService.CreateUserAsync(yeniKullanici);
+        return Ok(new { message = "Kullanıcı başarıyla oluşturuldu!" });
+    }
 }
