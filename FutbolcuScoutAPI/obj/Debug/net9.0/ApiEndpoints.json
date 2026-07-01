@@ -41,7 +41,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[FutbolcuScoutAPI.Models.Futbolcu, FutbolcuScoutAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[FutbolcuScoutAPI.Models.FutbolcuDto, FutbolcuScoutAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -83,7 +83,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "FutbolcuScoutAPI.Models.Futbolcu",
+        "Type": "FutbolcuScoutAPI.Models.FutbolcuDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -129,5 +129,46 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbolcuScoutAPI.Controllers.FutbolcuController",
+    "Method": "Filtrele",
+    "RelativePath": "api/Futbolcu/filtrele",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mevki",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "minYas",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "maxYas",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "minPuan",
+        "Type": "System.Nullable\u00601[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[FutbolcuScoutAPI.Models.FutbolcuDto, FutbolcuScoutAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

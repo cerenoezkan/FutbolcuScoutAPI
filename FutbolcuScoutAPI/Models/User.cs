@@ -11,5 +11,8 @@ namespace FutbolcuScoutAPI.Models
 
         public string Username { get; set; } = null!;
         public string Password { get; set; } = null!;
+
+        //Kullanıcı rolü - Admin veya Scout
+        public string Role { get; set; } = "Scout"; //varsayılan mod
     }
 }

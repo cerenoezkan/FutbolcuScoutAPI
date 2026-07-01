@@ -74,5 +74,32 @@ namespace FutbolcuScoutAPI.Services
         // 5. FUTBOLCU SİLME
         public async Task RemoveAsync(string id) =>
             await _futbolcuCollection.DeleteOneAsync(x => x.Id == id);
+
+        // 6. FİLTRELİ / DİNAMİK ARAMA
+        public async Task<List<Futbolcu>> FiltreleAsync(string? mevki, int? minYas, int? maxYas, double? minPuan) //? null olabileceğini söyler
+        {
+            var builder = Builders<Futbolcu>.Filter; //Mangodb'nin bize sunduğu karmaşık soeguları kolayca yazmamızı sağlayan araç = builder
+            var filtreler = new List<FilterDefinition<Futbolcu>>(); //kullanıcı arama kriteri gönderdiyse buraya paketleyip atıyoruz 
+
+            // Her kriter sadece GÖNDERİLMİŞSE listeye eklenir
+            if (!string.IsNullOrWhiteSpace(mevki)) //eğer kullanıcı mevki yazdıysa yani boş veya boşluklardan oluşmuyorsa - sadece string tipindeki veriler için 
+                filtreler.Add(builder.Eq(x => x.Mevki, mevki)); // Eq = eşittir demek
+
+            if (minYas.HasValue)
+                filtreler.Add(builder.Gte(x => x.Yas, minYas.Value)); // Gte = büyük eşit
+
+            if (maxYas.HasValue)
+                filtreler.Add(builder.Lte(x => x.Yas, maxYas.Value)); // Lte = küçük eşit
+
+            if (minPuan.HasValue)
+                filtreler.Add(builder.Gte(x => x.Puan, minPuan.Value)); //bunlarda .Value olması içine sayı alması gerektiği ve null de olabileceği için kontrol edilir
+
+            // Hiç kriter yoksa boş filtre (= herkesi getir), varsa hepsini AND ile birleştir
+            var sonFiltre = filtreler.Count > 0  //sepetteki kural birikti mi
+                ? builder.And(filtreler) //evet isse tüm kuralları birbirine bağla And komutuyla
+                : builder.Empty; //kullanıcı filtre seçmediyse her şeyi getir komutunu veriyoruz 
+
+            return await _futbolcuCollection.Find(sonFiltre).ToListAsync(); //elimizde ne istediğimizi tuttuğumuz sonFiltre var , veritabanından sadece buna uyanları getir
+        }
     }
 }

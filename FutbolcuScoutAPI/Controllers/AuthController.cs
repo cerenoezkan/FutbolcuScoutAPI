@@ -31,11 +31,19 @@ public class AuthController : ControllerBase
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256); //appsettings.json'daki gizli anahtarını alıp HmacSha256 çok güçlü bir algoritma ile "dijital mühür" hazırlıyoruz
 
             var token = new JwtSecurityToken(
-                claims: new[] { new Claim(ClaimTypes.Name, login.Username) }, //Kart sahibi kim? Name: ceren gibi
+                claims: new[] 
+                { 
+                    new Claim(ClaimTypes.Name, login.Username),
+                    new Claim(ClaimTypes.Role, user.Role) //user.Role -> Admin veya Scout --> ROLÜ TOKEN'A GÖMELİM
+                }, //Kart sahibi kim? Name: ceren gibi + rol var
                 expires: DateTime.Now.AddHours(1), // Kartın ömrü (1 saat sonra geçersiz olacak)
                 signingCredentials: creds //hazırladığımız mührü basıyoruz 
             );
-            return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) }); //kullanıcıya gönderme
+            return Ok(new 
+            { 
+                token = new JwtSecurityTokenHandler().WriteToken(token),
+                role = user.Role // Frontend'e de rolü gönderelim
+            }); //kullanıcıya gönderme
         }
         return Unauthorized(); //401 Hata kodu dön, tanımıyoruz 
     }
@@ -49,6 +57,10 @@ public class AuthController : ControllerBase
         {
             return BadRequest(new { message = "Bu kullanıcı adı zaten alınmış!" });
         }
+
+        // Rol belirtilmemişse Scout ata
+        if (string.IsNullOrEmpty(yeniKullanici.Role))
+            yeniKullanici.Role = "Scout";
 
         await _mongoService.CreateUserAsync(yeniKullanici);
         return Ok(new { message = "Kullanıcı başarıyla oluşturuldu!" });
