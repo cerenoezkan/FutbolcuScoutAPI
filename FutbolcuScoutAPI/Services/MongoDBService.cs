@@ -1,0 +1,59 @@
+﻿using FutbolcuScoutAPI.Models;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
+
+namespace FutbolcuScoutAPI.Services
+{
+    public class MongoDBService
+    {
+        private readonly IMongoCollection<Futbolcu> _futbolcuCollection;
+        // Önce class'ın en başına User koleksiyonunu tanımla
+        private readonly IMongoCollection<User> _userCollection;
+
+        public MongoDBService(IConfiguration configuration)
+        {
+            // Senin appsettings.json dosyanın yapısına göre odaları eşleştiriyoruz
+            // Önce ConnectionStrings odasına gir, oradaki MongoDb değerini al dedik
+            var connectionString = configuration.GetSection("ConnectionStrings:MongoDb").Value;
+
+            // Veritabanı adını doğrudan senin dosyandaki isimle buraya sabitliyoruz
+            var databaseName = "FutbolcuScoutDB";
+
+            // Koleksiyon (tablo) adını da Futbolcular yapıyoruz
+            var collectionName = "Futbolcular";
+
+            // MongoDB istemcisini ayağa kaldırıp veritabanına bağlanıyoruz
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase(databaseName);
+
+            // Üzerinde işlem yapacağımız futbolcu koleksiyonunu seçiyoruz
+            _futbolcuCollection = database.GetCollection<Futbolcu>(collectionName);
+            _userCollection = database.GetCollection<User>("Users"); // kodumuzu veritabanındaki Users isimli koleksiyonla el sıkıştırdık.
+        }
+
+        // 3. Buraya kullanıcı sorgulama metodunu ekledik
+        public async Task<User?> GetUserAsync(string username, string password) => //Bana ismi ve şifresi verdiğim kişiyle eşleşen ilk kaydı getir.
+            await _userCollection.Find(u => u.Username == username && u.Password == password).FirstOrDefaultAsync();
+
+        // 1. TÜM FUTBOLCULARI LİSTELEME
+        public async Task<List<Futbolcu>> GetAsync() =>
+            await _futbolcuCollection.Find(_ => true).ToListAsync();
+
+        // 2. TEK BİR FUTBOLCUYU ID'SİNE GÖRE GETİRME
+        public async Task<Futbolcu?> GetAsync(string id) =>
+            await _futbolcuCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+
+        // 3. YENİ FUTBOLCU EKLEME
+
+        public async Task CreateAsync(Futbolcu yeniFutbolcu) =>
+            await _futbolcuCollection.InsertOneAsync(yeniFutbolcu);
+
+        // 4. FUTBOLCU GÜNCELLEME
+        public async Task UpdateAsync(string id, Futbolcu guncelFutbolcu) =>
+            await _futbolcuCollection.ReplaceOneAsync(x => x.Id == id, guncelFutbolcu);
+
+        // 5. FUTBOLCU SİLME
+        public async Task RemoveAsync(string id) =>
+            await _futbolcuCollection.DeleteOneAsync(x => x.Id == id);
+    }
+}
