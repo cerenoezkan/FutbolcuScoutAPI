@@ -1,0 +1,13 @@
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\bin\Debug\net9.0\GenericApi.deps.json
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\bin\Debug\net9.0\GenericApi.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\bin\Debug\net9.0\GenericApi.pdb
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\obj\Debug\net9.0\GenericApi.csproj.AssemblyReference.cache
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\obj\Debug\net9.0\GenericApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\obj\Debug\net9.0\GenericApi.AssemblyInfoInputs.cache
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\obj\Debug\net9.0\GenericApi.AssemblyInfo.cs
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\obj\Debug\net9.0\GenericApi.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\obj\Debug\net9.0\GenericApi.sourcelink.json
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\obj\Debug\net9.0\GenericApi.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\obj\Debug\net9.0\refint\GenericApi.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\obj\Debug\net9.0\GenericApi.pdb
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\GenericApi\obj\Debug\net9.0\ref\GenericApi.dll
