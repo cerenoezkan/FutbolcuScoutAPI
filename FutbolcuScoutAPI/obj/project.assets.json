@@ -256,6 +256,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "Newtonsoft.Json/13.0.4": {
         "type": "package",
         "compile": {
@@ -269,6 +270,8 @@
           }
         }
       },
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
       "SharpCompress/0.48.1": {
         "type": "package",
         "compile": {
@@ -393,6 +396,7 @@
         "runtime": {
           "lib/net7.0/ZstdSharp.dll": {}
         }
+<<<<<<< HEAD
       },
       "GenericApi/1.0.0": {
         "type": "project",
@@ -406,6 +410,8 @@
         "runtime": {
           "bin/placeholder/GenericApi.dll": {}
         }
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
       }
     }
   },
@@ -757,6 +763,7 @@
         "packageIcon.png"
       ]
     },
+<<<<<<< HEAD
     "Newtonsoft.Json/13.0.4": {
       "sha512": "pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A==",
       "type": "package",
@@ -787,6 +794,8 @@
         "packageIcon.png"
       ]
     },
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
     "SharpCompress/0.48.1": {
       "sha512": "SqGaVniGG943Gph/gHhUQUiZPyC7y0tXZyMf0/B2oGsMav9dqs7JJOuUA+xOkwKYaWM2TM7aZQjNK91f4bX71A==",
       "type": "package",
@@ -1045,17 +1054,23 @@
         "zstdsharp.port.0.7.3.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
+<<<<<<< HEAD
     },
     "GenericApi/1.0.0": {
       "type": "project",
       "path": "../GenericApi/GenericApi.csproj",
       "msbuildProject": "../GenericApi/GenericApi.csproj"
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "BCrypt.Net-Next >= 4.2.0",
+<<<<<<< HEAD
       "GenericApi >= 1.0.0",
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 9.0.0",
       "Microsoft.AspNetCore.OpenApi >= 9.0.17",
       "MongoDB.Driver >= 3.9.0"
@@ -1092,11 +1107,15 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+<<<<<<< HEAD
           "projectReferences": {
             "C:\\Users\\Lenovo\\OneDrive\\Masaüstü\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\GenericApi\\GenericApi.csproj": {
               "projectPath": "C:\\Users\\Lenovo\\OneDrive\\Masaüstü\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\GenericApi\\GenericApi.csproj"
             }
           }
+=======
+          "projectReferences": {}
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
         }
       },
       "warningProperties": {

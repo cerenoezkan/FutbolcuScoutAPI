@@ -238,12 +238,15 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
     const [filtre, setFiltre] = useState(BOS_FILTRE);       // formdaki anlık input değerleri
     const [filtreAktif, setFiltreAktif] = useState(false);  // en son uygulanan sorgu filtreli mi?
 
+<<<<<<< HEAD
     // --- SCOUT ARAMA (TheSportsDB) İÇİN YENİ STATE'LER ---
     const [scoutAramaAdi, setScoutAramaAdi] = useState('');
     const [scoutSonuclari, setScoutSonuclari] = useState([]);
     const [scoutAraniyor, setScoutAraniyor] = useState(false);
     const [scoutHata, setScoutHata] = useState('');
 
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
     const yetkiliBasliklar = {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
@@ -351,6 +354,7 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
         });
     };
 
+<<<<<<< HEAD
     // dateBorn ("1985-02-05" gibi) alanından yaklaşık yaş hesaplar
     const yasHesapla = (dateBorn) => {
         if (!dateBorn) return '';
@@ -405,6 +409,8 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
         });
     };
 
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
     const sil = async (id) => {
         if (!window.confirm('Bu oyuncuyu silmek istediğine emin misin?')) return;
         try {
@@ -623,6 +629,7 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
                 </main>
             </div>
 
+<<<<<<< HEAD
             {rol === 'Admin' && (
                 <section className="panel" style={{ margin: '0 26px 26px' }}>
                     <div className="panel-title">Scout Arama</div>
@@ -689,6 +696,8 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
                 </section>
             )}
 
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
             <footer className="dossier-foot">
                 Tüm istekler JWT token ile Authorization başlığında gönderiliyor.
             </footer>

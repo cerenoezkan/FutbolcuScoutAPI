@@ -3,10 +3,13 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+<<<<<<< HEAD
 
 // Servisi sisteme tanýtýyoruz
 builder.Services.AddHttpClient<GenericApi.Services.SportsDbService>();  //.NET, PlayerSearchController'ýn constructor'ýna hangi SportsDbService nesnesini vereceðini bilir
 
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
 // 1. Ýzin politikasý tanýmlýyoruz
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowAll",

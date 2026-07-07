@@ -13,8 +13,11 @@
     <PackageReference Include="MongoDB.Driver" Version="3.9.0" />
   </ItemGroup>
 
+<<<<<<< HEAD
   <ItemGroup>
     <ProjectReference Include="..\GenericApi\GenericApi.csproj" />
   </ItemGroup>
 
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
 </Project>

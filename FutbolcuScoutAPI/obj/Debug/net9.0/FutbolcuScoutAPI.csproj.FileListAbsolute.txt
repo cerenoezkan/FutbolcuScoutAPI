@@ -49,6 +49,9 @@ C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuSc
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.pdb
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.genruntimeconfig.cache
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\ref\FutbolcuScoutAPI.dll
+<<<<<<< HEAD
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\GenericApi.dll
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\GenericApi.pdb
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0

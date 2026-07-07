@@ -170,6 +170,7 @@
         "StatusCode": 200
       }
     ]
+<<<<<<< HEAD
   },
   {
     "ContainingType": "FutbolcuScoutAPI.Controllers.PlayerSearchController",
@@ -186,5 +187,7 @@
       }
     ],
     "ReturnTypes": []
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
   }
 ]

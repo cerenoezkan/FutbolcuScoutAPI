@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\futbolcuscoutapi\\futbolcuscoutapi\\futbolcuscoutapi\\clientapp\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|solutionrelative:futbolcuscoutapi\\clientapp\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\futbolcuscoutapi\\futbolcuscoutapi\\futbolcuscoutapi\\services\\mongodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|solutionrelative:futbolcuscoutapi\\services\\mongodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\futbolcuscoutapi\\futbolcuscoutapi\\futbolcuscoutapi\\clientapp\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|solutionrelative:futbolcuscoutapi\\clientapp\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\futbolcuscoutapi\\futbolcuscoutapi\\futbolcuscoutapi\\controllers\\futbolcucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|solutionrelative:futbolcuscoutapi\\controllers\\futbolcucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\futbolcuscoutapi\\futbolcuscoutapi\\futbolcuscoutapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|solutionrelative:futbolcuscoutapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\futbolcuscoutapi\\futbolcuscoutapi\\futbolcuscoutapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|solutionrelative:futbolcuscoutapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\futbolcuscoutapi\\futbolcuscoutapi\\futbolcuscoutapi\\models\\futbolcu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|solutionrelative:futbolcuscoutapi\\models\\futbolcu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\futbolcuscoutapi\\futbolcuscoutapi\\futbolcuscoutapi\\models\\futbolcudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|solutionrelative:futbolcuscoutapi\\models\\futbolcudto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\futbolcuscoutapi\\futbolcuscoutapi\\futbolcuscoutapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE34DB40-6686-4022-8F05-D4BB9A16156C}|FutbolcuScoutAPI\\FutbolcuScoutAPI.csproj|solutionrelative:futbolcuscoutapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.css",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\ClientApp\\src\\App.css",
+              "RelativeDocumentMoniker": "FutbolcuScoutAPI\\ClientApp\\src\\App.css",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\ClientApp\\src\\App.css",
+              "RelativeToolTip": "FutbolcuScoutAPI\\ClientApp\\src\\App.css",
+              "ViewState": "AgIAANcCAAAAAAAAAAAqwPYCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-07-01T12:09:29.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\ClientApp\\src\\App.jsx",
+              "RelativeDocumentMoniker": "FutbolcuScoutAPI\\ClientApp\\src\\App.jsx",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\ClientApp\\src\\App.jsx",
+              "RelativeToolTip": "FutbolcuScoutAPI\\ClientApp\\src\\App.jsx",
+              "ViewState": "AgIAAA8CAAAAAAAAAAAYwD0CAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-07-01T11:50:31.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Program.cs",
+              "RelativeDocumentMoniker": "FutbolcuScoutAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Program.cs",
+              "RelativeToolTip": "FutbolcuScoutAPI\\Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABMAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T11:47:36.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MongoDBService.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Services\\MongoDBService.cs",
+              "RelativeDocumentMoniker": "FutbolcuScoutAPI\\Services\\MongoDBService.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Services\\MongoDBService.cs",
+              "RelativeToolTip": "FutbolcuScoutAPI\\Services\\MongoDBService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAwwFQAAAChAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T10:02:58.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "FutbolcuScoutAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "FutbolcuScoutAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA+wB0AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T10:02:22.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Models\\User.cs",
+              "RelativeDocumentMoniker": "FutbolcuScoutAPI\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Models\\User.cs",
+              "RelativeToolTip": "FutbolcuScoutAPI\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T10:02:11.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FutbolcuDto.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Models\\FutbolcuDto.cs",
+              "RelativeDocumentMoniker": "FutbolcuScoutAPI\\Models\\FutbolcuDto.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Models\\FutbolcuDto.cs",
+              "RelativeToolTip": "FutbolcuScoutAPI\\Models\\FutbolcuDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T09:33:24.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Futbolcu.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Models\\Futbolcu.cs",
+              "RelativeDocumentMoniker": "FutbolcuScoutAPI\\Models\\Futbolcu.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Models\\Futbolcu.cs",
+              "RelativeToolTip": "FutbolcuScoutAPI\\Models\\Futbolcu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T09:16:32.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FutbolcuController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Controllers\\FutbolcuController.cs",
+              "RelativeDocumentMoniker": "FutbolcuScoutAPI\\Controllers\\FutbolcuController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\OneDrive\\Masa\u00FCst\u00FC\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\Controllers\\FutbolcuController.cs",
+              "RelativeToolTip": "FutbolcuScoutAPI\\Controllers\\FutbolcuController.cs",
+              "ViewState": "AgIAAA4AAABA/P///38twCoAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T09:12:53.193Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

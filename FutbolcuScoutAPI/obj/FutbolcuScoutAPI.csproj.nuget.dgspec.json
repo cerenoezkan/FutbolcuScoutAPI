@@ -31,11 +31,15 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
+<<<<<<< HEAD
             "projectReferences": {
               "C:\\Users\\Lenovo\\OneDrive\\Masaüstü\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\GenericApi\\GenericApi.csproj": {
                 "projectPath": "C:\\Users\\Lenovo\\OneDrive\\Masaüstü\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\GenericApi\\GenericApi.csproj"
               }
             }
+=======
+            "projectReferences": {}
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
           }
         },
         "warningProperties": {
@@ -93,6 +97,7 @@
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
         }
       }
+<<<<<<< HEAD
     },
     "C:\\Users\\Lenovo\\OneDrive\\Masaüstü\\FutbolcuScoutAPI\\FutbolcuScoutAPI\\GenericApi\\GenericApi.csproj": {
       "version": "1.0.0",
@@ -164,6 +169,8 @@
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
         }
       }
+=======
+>>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
     }
   }
 }
