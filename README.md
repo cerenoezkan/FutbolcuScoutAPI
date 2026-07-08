@@ -37,11 +37,11 @@ The backend is a **.NET Web API** backed by **MongoDB**, secured with **JWT auth
 
 | Login | Roster Management | Favorites & Excel Actions |
 |---|---|---|
-| ![Login Screen](../screenshots/giris_ekrani.png) | ![Admin Roster View](../screenshots/yeni_oyuncu.png) | ![Favorites Panel](../screenshots/favorites.png) |
+| ![Login Screen](screenshots/giris_ekrani.png) | ![Admin Roster View](screenshots/yeni_oyuncu.png) | ![Favorites Panel](screenshots/favorites.png) |
 
 | Player Search | Team Details | League Standings |
 |---|---|---|
-| ![Player Search](../screenshots/arama.png) | ![Team Search](../screenshots/arama2.png) | ![League Standings](../screenshots/standings.png) |
+| ![Player Search](screenshots/arama.png) | ![Team Search](screenshots/arama2.png) | ![League Standings](screenshots/standings.png) |
 
 ---
 
@@ -184,8 +184,4 @@ Make sure `appsettings.Development.json` (or any file containing real secrets) i
 
 `GenericApi/Services/ExcelHelper.cs` uses C# reflection (`typeof(T).GetProperties()`) so a single implementation can export/import **any** model type — currently used for both `Favori` and TheSportsDB search results — without writing per-model mapping code.
 
----
 
-## 📄 License
-
-This project was developed for educational purposes as part of a university software engineering course.
