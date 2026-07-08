@@ -7,7 +7,7 @@ A full-stack football scouting application that lets scouts and admins manage a 
 
 ---
 
-## 📖 Overview
+##  Overview
 
 FutbolcuScoutAPI is a role-based scouting management system built as a full-stack project. Two roles drive two different experiences:
 
@@ -18,22 +18,22 @@ The backend is a **.NET Web API** backed by **MongoDB**, secured with **JWT auth
 
 ---
 
-## ✨ Features
+##  Features
 
 | Category | Description |
 |---|---|
-| 🔐 Authentication | JWT-based login/register, role-based authorization (`Admin` / `Scout`) |
-| 🧑‍💼 Roster management | Full CRUD on players (name, position, age, team, scout rating) |
-| 🔎 Dynamic filtering | Filter roster by position, age range, and minimum scout rating via a dedicated MongoDB `FilterDefinitionBuilder` endpoint |
-| 🌍 External data (TheSportsDB) | Search real players by name, search real teams by name, fetch live league standings by league ID |
-| ⭐ Favorites | Add players/teams found via external search to a personal favorites list; remove them anytime |
-| 📤 Excel export | Download the current favorites list as a formatted `.xlsx` file (generic, reflection-based export — works for any model) |
-| 📥 Excel import | Upload an edited `.xlsx` file to bulk-create favorites, with automatic column-to-property mapping |
-| 🎨 Custom UI | Football-pitch color theme (deep greens + amber accents), position-colored player pills, skeleton loading states, responsive layout |
+|  Authentication | JWT-based login/register, role-based authorization (`Admin` / `Scout`) |
+|  Roster management | Full CRUD on players (name, position, age, team, scout rating) |
+|  Dynamic filtering | Filter roster by position, age range, and minimum scout rating via a dedicated MongoDB `FilterDefinitionBuilder` endpoint |
+|  External data (TheSportsDB) | Search real players by name, search real teams by name, fetch live league standings by league ID |
+|  Favorites | Add players/teams found via external search to a personal favorites list; remove them anytime |
+|  Excel export | Download the current favorites list as a formatted `.xlsx` file (generic, reflection-based export — works for any model) |
+|  Excel import | Upload an edited `.xlsx` file to bulk-create favorites, with automatic column-to-property mapping |
+|  Custom UI | Football-pitch color theme (deep greens + amber accents), position-colored player pills, skeleton loading states, responsive layout |
 
 ---
 
-## 🖼️ Screenshots
+##  Screenshots
 
 | Login | Roster Management | Favorites & Excel Actions |
 |---|---|---|
@@ -45,7 +45,7 @@ The backend is a **.NET Web API** backed by **MongoDB**, secured with **JWT auth
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 **Backend**
 - ASP.NET Core Web API (C#)
@@ -61,7 +61,7 @@ The backend is a **.NET Web API** backed by **MongoDB**, secured with **JWT auth
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 FutbolcuScoutAPI/
@@ -86,7 +86,7 @@ FutbolcuScoutAPI/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - [.NET SDK](https://dotnet.microsoft.com/download) 8.0+
@@ -144,7 +144,7 @@ Open the printed local URL (typically `http://localhost:5173`) in your browser.
 
 ---
 
-## 🔑 Environment Variables
+##  Environment Variables
 
 Sensitive configuration must **never** be committed to the repository. Use `dotnet user-secrets` locally, or environment variables in production.
 
@@ -159,7 +159,7 @@ Make sure `appsettings.Development.json` (or any file containing real secrets) i
 
 ---
 
-## 📡 Key API Endpoints
+##  Key API Endpoints
 
 | Method | Endpoint | Description | Auth |
 |---|---|---|---|
@@ -180,7 +180,7 @@ Make sure `appsettings.Development.json` (or any file containing real secrets) i
 
 ---
 
-## 🧩 Notable Implementation Detail: Generic Excel Import/Export
+##  Notable Implementation Detail: Generic Excel Import/Export
 
 `GenericApi/Services/ExcelHelper.cs` uses C# reflection (`typeof(T).GetProperties()`) so a single implementation can export/import **any** model type — currently used for both `Favori` and TheSportsDB search results — without writing per-model mapping code.
 
