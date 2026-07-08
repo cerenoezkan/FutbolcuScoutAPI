@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FutbolcuScoutAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d7fdfba9484625b3edb013af51539ed4b59722a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ff2b9b6c44cadb97977f3cb27417448daa2d3bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("FutbolcuScoutAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FutbolcuScoutAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
