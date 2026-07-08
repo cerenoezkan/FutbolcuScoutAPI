@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 
 const BASE_URL = 'https://localhost:44313';
@@ -238,15 +238,36 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
     const [filtre, setFiltre] = useState(BOS_FILTRE);       // formdaki anlık input değerleri
     const [filtreAktif, setFiltreAktif] = useState(false);  // en son uygulanan sorgu filtreli mi?
 
-<<<<<<< HEAD
     // --- SCOUT ARAMA (TheSportsDB) İÇİN YENİ STATE'LER ---
     const [scoutAramaAdi, setScoutAramaAdi] = useState('');
     const [scoutSonuclari, setScoutSonuclari] = useState([]);
     const [scoutAraniyor, setScoutAraniyor] = useState(false);
     const [scoutHata, setScoutHata] = useState('');
 
-=======
->>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
+    // --- TAKIM ARAMA (TheSportsDB) İÇİN YENİ STATE'LER ---
+    const [takimAramaAdi, setTakimAramaAdi] = useState('');
+    const [takimSonuclari, setTakimSonuclari] = useState([]);
+    const [takimAraniyor, setTakimAraniyor] = useState(false);
+    const [takimHata, setTakimHata] = useState('');
+
+    // --- LİG PUAN DURUMU (TheSportsDB) İÇİN YENİ STATE'LER ---
+    const [ligIdGirdi, setLigIdGirdi] = useState('');
+    const [puanDurumu, setPuanDurumu] = useState([]);
+    const [puanDurumuAraniyor, setPuanDurumuAraniyor] = useState(false);
+    const [puanDurumuHata, setPuanDurumuHata] = useState('');
+
+    // --- FAVORİLER İÇİN YENİ STATE'LER ---
+    const [favoriler, setFavoriler] = useState([]);
+    const [favorilerYukleniyor, setFavorilerYukleniyor] = useState(true);
+    const [favoriHata, setFavoriHata] = useState('');
+    const [favoriIslemdekiId, setFavoriIslemdekiId] = useState(null); // hangi KaynakId/favoriId üzerinde işlem yapılıyor
+
+    // --- FAVORİLER EXCEL EXPORT / IMPORT İÇİN YENİ STATE'LER ---
+    const [disaAktariliyor, setDisaAktariliyor] = useState(false);   // export butonu "beklet" durumu
+    const [iceAktariliyor, setIceAktariliyor] = useState(false);     // import işlemi sürerken "beklet" durumu
+    const [iceAktarimMesaji, setIceAktarimMesaji] = useState('');    // "12 favori eklendi" gibi bilgi mesajı
+    const dosyaInputRef = useRef(null);                              // gizli <input type="file"> öğesine erişim için
+
     const yetkiliBasliklar = {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
@@ -354,7 +375,6 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
         });
     };
 
-<<<<<<< HEAD
     // dateBorn ("1985-02-05" gibi) alanından yaklaşık yaş hesaplar
     const yasHesapla = (dateBorn) => {
         if (!dateBorn) return '';
@@ -409,8 +429,221 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
         });
     };
 
-=======
->>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
+    // TheSportsDB üzerinden isimle takım arar
+    const takimAra = async (e) => {
+        e.preventDefault();
+        if (!takimAramaAdi.trim()) return;
+        setTakimAraniyor(true);
+        setTakimHata('');
+        try {
+            const res = await fetch(`${BASE_URL}/api/TeamSearch/${encodeURIComponent(takimAramaAdi.trim())}`, {
+                headers: yetkiliBasliklar,
+            });
+            if (res.status === 404) {
+                setTakimSonuclari([]);
+                setTakimHata(`'${takimAramaAdi}' isminde bir takım bulunamadı.`);
+                return;
+            }
+            if (!res.ok) {
+                setTakimSonuclari([]);
+                setTakimHata(`Arama başarısız (${res.status}).`);
+                return;
+            }
+            const data = await res.json();
+            setTakimSonuclari(data);
+        } catch {
+            setTakimSonuclari([]);
+            setTakimHata('Takım arama sırasında bağlantı hatası oluştu.');
+        } finally {
+            setTakimAraniyor(false);
+        }
+    };
+
+    // TheSportsDB üzerinden lig ID'siyle puan durumunu getirir
+    const puanDurumuGetir = async (e) => {
+        e.preventDefault();
+        if (!ligIdGirdi.trim()) return;
+        setPuanDurumuAraniyor(true);
+        setPuanDurumuHata('');
+        try {
+            const res = await fetch(`${BASE_URL}/api/LeagueTable/${encodeURIComponent(ligIdGirdi.trim())}`, {
+                headers: yetkiliBasliklar,
+            });
+            if (res.status === 404) {
+                setPuanDurumu([]);
+                setPuanDurumuHata(`'${ligIdGirdi}' ID'li lig için puan durumu bulunamadı.`);
+                return;
+            }
+            if (!res.ok) {
+                setPuanDurumu([]);
+                setPuanDurumuHata(`Arama başarısız (${res.status}).`);
+                return;
+            }
+            const data = await res.json();
+            setPuanDurumu(data);
+        } catch {
+            setPuanDurumu([]);
+            setPuanDurumuHata('Puan durumu alınırken bağlantı hatası oluştu.');
+        } finally {
+            setPuanDurumuAraniyor(false);
+        }
+    };
+
+    // Favorileri sunucudan çeker
+    const favorileriGetir = async () => {
+        setFavorilerYukleniyor(true);
+        setFavoriHata('');
+        try {
+            const res = await fetch(`${BASE_URL}/api/Favori`, { headers: yetkiliBasliklar });
+            if (res.status === 401) { onCikis(); return; }
+            if (!res.ok) {
+                setFavoriHata(`Favoriler alınamadı (${res.status}).`);
+                return;
+            }
+            const data = await res.json();
+            setFavoriler(data);
+        } catch {
+            setFavoriHata('Favoriler alınırken bağlantı hatası oluştu.');
+        } finally {
+            setFavorilerYukleniyor(false);
+        }
+    };
+
+    useEffect(() => { favorileriGetir(); }, []);
+
+    // Bir oyuncu/takım kartından favorilere ekler. tur: "Oyuncu" | "Takim"
+    const favorilereEkle = async (favori) => {
+        setFavoriIslemdekiId(favori.KaynakId);
+        try {
+            const res = await fetch(`${BASE_URL}/api/Favori`, {
+                method: 'POST',
+                headers: yetkiliBasliklar,
+                body: JSON.stringify(favori),
+            });
+            if (res.status === 400) {
+                const data = await res.json().catch(() => null);
+                setFavoriHata(data?.message || 'Bu zaten favorilerde ekli.');
+                return;
+            }
+            if (!res.ok) {
+                setFavoriHata(`Favorilere eklenemedi (${res.status}).`);
+                return;
+            }
+            setFavoriHata('');
+            await favorileriGetir();
+        } catch {
+            setFavoriHata('Favorilere eklerken bağlantı hatası oluştu.');
+        } finally {
+            setFavoriIslemdekiId(null);
+        }
+    };
+
+    // Favorilerim panelindeki "Çıkar" butonuna basınca çalışır
+    const favoridenCikar = async (id) => {
+        setFavoriIslemdekiId(id);
+        try {
+            const res = await fetch(`${BASE_URL}/api/Favori/${id}`, {
+                method: 'DELETE',
+                headers: yetkiliBasliklar,
+            });
+            if (!res.ok) {
+                setFavoriHata(`Favoriden çıkarılamadı (${res.status}).`);
+                return;
+            }
+            setFavoriler((oncekiler) => oncekiler.filter((f) => (f.id ?? f.Id) !== id));
+        } catch {
+            setFavoriHata('Favoriden çıkarma sırasında bağlantı hatası oluştu.');
+        } finally {
+            setFavoriIslemdekiId(null);
+        }
+    };
+
+    // Halihazırda favoride olan kaynakların hızlı kontrolü (buton durumunu belirlemek için)
+    const favoriKaynakIdleri = new Set(favoriler.map((f) => f.kaynakId ?? f.KaynakId));
+
+    // --- EXCEL'E AKTAR (EXPORT) ---
+    // GET /api/Favori/export normal bir <a href="..."> linkiyle indirilemez,
+    // çünkü endpoint [Authorize] ile korunuyor ve token'ı Authorization header'ında istiyor.
+    // Bu yüzden fetch ile isteği kendimiz atıp, dönen veriyi (blob) tarayıcıya "indir" diye sunuyoruz.
+    const favorileriDisaAktar = async () => {
+        setDisaAktariliyor(true);
+        setFavoriHata('');
+        try {
+            const res = await fetch(`${BASE_URL}/api/Favori/export`, {
+                method: 'GET',
+                headers: yetkiliBasliklar, // Authorization: Bearer <token> burada gidiyor
+            });
+            if (res.status === 401) { onCikis(); return; }
+            if (!res.ok) {
+                setFavoriHata(`Excel indirilemedi (${res.status}).`);
+                return;
+            }
+
+            // Cevabın gövdesi artık JSON değil, ham dosya baytları (blob)
+            const blob = await res.blob();
+
+            // Sunucunun Content-Disposition header'ından gerçek dosya adını okumayı dene,
+            // bulamazsan yedek/varsayılan bir isim kullan.
+            const contentDisposition = res.headers.get('Content-Disposition') || '';
+            const eslesme = contentDisposition.match(/filename="?([^"]+)"?/);
+            const dosyaAdi = eslesme ? eslesme[1] : `favoriler_${Date.now()}.xlsx`;
+
+            // Tarayıcıda "sahte" bir indirme linki oluşturup otomatik tıklatıyoruz.
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = dosyaAdi;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            window.URL.revokeObjectURL(url); // belleği temizle
+        } catch {
+            setFavoriHata('Excel indirilirken bağlantı hatası oluştu.');
+        } finally {
+            setDisaAktariliyor(false);
+        }
+    };
+
+    // --- EXCEL'DEN İÇE AKTAR (IMPORT) ---
+    // Kullanıcı dosya seçtiğinde tarayıcı bunu otomatik çağırır (bkz. <input type="file" onChange=...>)
+    const favorileriIceAktar = async (e) => {
+        const dosya = e.target.files?.[0];
+        if (!dosya) return;
+
+        setIceAktariliyor(true);
+        setFavoriHata('');
+        setIceAktarimMesaji('');
+        try {
+            // Dosya yüklerken JSON değil, "multipart/form-data" kullanılır.
+            // Bu yüzden Content-Type header'ını ELLE eklemiyoruz;
+            // FormData + fetch bunu sınır (boundary) bilgisiyle birlikte kendisi ayarlar.
+            const formData = new FormData();
+            formData.append('dosya', dosya); // backend'deki parametre adıyla ("IFormFile dosya") birebir aynı olmalı
+
+            const res = await fetch(`${BASE_URL}/api/Favori/import`, {
+                method: 'POST',
+                headers: { Authorization: `Bearer ${token}` }, // Content-Type YOK, tarayıcı otomatik ekliyor
+                body: formData,
+            });
+            if (res.status === 401) { onCikis(); return; }
+
+            const data = await res.json().catch(() => null);
+
+            if (!res.ok) {
+                setFavoriHata(data?.mesaj || data?.message || `İçe aktarma başarısız (${res.status}).`);
+                return;
+            }
+
+            setIceAktarimMesaji(data?.mesaj || 'İçe aktarma tamamlandı.');
+            await favorileriGetir(); // listeyi tazele, yeni eklenenler görünsün
+        } catch {
+            setFavoriHata('İçe aktarma sırasında bağlantı hatası oluştu.');
+        } finally {
+            setIceAktariliyor(false);
+            e.target.value = ''; // aynı dosyayı tekrar seçebilmek için input'u sıfırla
+        }
+    };
+
     const sil = async (id) => {
         if (!window.confirm('Bu oyuncuyu silmek istediğine emin misin?')) return;
         try {
@@ -442,7 +675,90 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
                 </div>
             </header>
 
-            <div className="dossier-body">
+            <section className="panel favori-panel">
+                <div className="panel-title">
+                    ⭐ Favorilerim
+                    <span className="panel-count">{favoriler.length} kayıt</span>
+                </div>
+
+                <div className="excel-actions">
+                    <button
+                        type="button"
+                        className="filter-btn"
+                        onClick={favorileriDisaAktar}
+                        disabled={disaAktariliyor || favoriler.length === 0}
+                    >
+                        {disaAktariliyor ? 'İndiriliyor…' : '📤 Excel\'e Aktar'}
+                    </button>
+
+                    <button
+                        type="button"
+                        className="filter-btn ghost"
+                        onClick={() => dosyaInputRef.current?.click()}
+                        disabled={iceAktariliyor}
+                    >
+                        {iceAktariliyor ? 'Yükleniyor…' : '📥 Excel\'den İçe Aktar'}
+                    </button>
+                    <input
+                        type="file"
+                        ref={dosyaInputRef}
+                        accept=".xlsx,.xls"
+                        style={{ display: 'none' }}
+                        onChange={favorileriIceAktar}
+                    />
+                </div>
+
+                {iceAktarimMesaji && <div className="excel-basari">{iceAktarimMesaji}</div>}
+                {favoriHata && <div className="auth-error">{favoriHata}</div>}
+
+                {favorilerYukleniyor ? (
+                    <div className="skeleton-rows">
+                        <div className="skeleton-row">
+                            <div className="skeleton-bar" style={{ width: '40%' }} />
+                            <div className="skeleton-bar" style={{ width: '25%' }} />
+                        </div>
+                    </div>
+                ) : favoriler.length === 0 ? (
+                    <div className="empty-state">Henüz favorilere eklenmiş bir takım veya oyuncu yok.</div>
+                ) : (
+                    <div className="favori-grid">
+                        {favoriler.map((f) => {
+                            const id = f.id ?? f.Id;
+                            const tur = f.tur ?? f.Tur;
+                            const isim = f.isim ?? f.Isim;
+                            const gorselUrl = f.gorselUrl ?? f.GorselUrl;
+                            const ekNot = f.ekNot ?? f.EkNot;
+                            return (
+                                <div className="favori-card" key={id}>
+                                    <div className="favori-card-media">
+                                        {gorselUrl ? (
+                                            <img src={gorselUrl} alt={isim} />
+                                        ) : (
+                                            <span>{tur === 'Takim' ? '🛡️' : '🔎'}</span>
+                                        )}
+                                    </div>
+                                    <div className="favori-card-body">
+                                        <span className={`favori-badge ${tur === 'Takim' ? 'favori-badge-takim' : 'favori-badge-oyuncu'}`}>
+                                            {tur === 'Takim' ? 'Takım' : 'Oyuncu'}
+                                        </span>
+                                        <div className="favori-card-name">{isim}</div>
+                                        {ekNot && <div className="favori-card-note">{ekNot}</div>}
+                                    </div>
+                                    <button
+                                        className="link-btn danger favori-remove-btn"
+                                        disabled={favoriIslemdekiId === id}
+                                        onClick={() => favoridenCikar(id)}
+                                    >
+                                        {favoriIslemdekiId === id ? '…' : 'Favoriden Çıkar'}
+                                    </button>
+                                </div>
+                            );
+                        })}
+                    </div>
+                )}
+            </section>
+
+            <div className={`dossier-body${rol !== 'Admin' ? ' dossier-body--solo' : ''}`}>
                 {rol === 'Admin' && (
                     <aside className="panel">
                         <div className="panel-title">
@@ -615,7 +931,7 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
                                                             </>
                                                         )}
                                                         {rol !== 'Admin' && (
-                                                            <span className="view-only-tag">Sadece görüntüleme</span>
+                                                            <span className="view-only-tag">👁 Görüntüleme</span>
                                                         )}
                                                     </div>
                                                 </td>
@@ -629,10 +945,15 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
                 </main>
             </div>
 
-<<<<<<< HEAD
             {rol === 'Admin' && (
-                <section className="panel" style={{ margin: '0 26px 26px' }}>
-                    <div className="panel-title">Scout Arama</div>
+                <section className="panel scout-panel">
+                    <div className="scout-panel-head">
+                        <div className="scout-panel-icon">🔎</div>
+                        <div>
+                            <div className="panel-title" style={{ padding: 0, border: 'none' }}>Scout Arama</div>
+                            <p className="scout-panel-sub">TheSportsDB üzerinden oyuncu ara, tek tıkla kadro formuna aktar.</p>
+                        </div>
+                    </div>
 
                     <form className="filter-bar" onSubmit={scoutAra} style={{ padding: '18px 26px 0' }}>
                         <label className="filter-field" style={{ flex: 1 }}>
@@ -685,6 +1006,23 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
                                                     <button className="link-btn" onClick={() => kadroyaEkleFormaAktar(oyuncu)}>
                                                         Kadroya Ekle
                                                     </button>
+                                                    <button
+                                                        className="link-btn favori-btn"
+                                                        disabled={favoriKaynakIdleri.has(oyuncu.idPlayer) || favoriIslemdekiId === oyuncu.idPlayer}
+                                                        onClick={() => favorilereEkle({
+                                                            Tur: 'Oyuncu',
+                                                            KaynakId: oyuncu.idPlayer,
+                                                            Isim: oyuncu.strPlayer,
+                                                            GorselUrl: oyuncu.strThumb || oyuncu.strCutout || null,
+                                                            EkNot: oyuncu.strTeam || null,
+                                                        })}
+                                                    >
+                                                        {favoriKaynakIdleri.has(oyuncu.idPlayer)
+                                                            ? '⭐ Favoride'
+                                                            : favoriIslemdekiId === oyuncu.idPlayer
+                                                                ? 'Ekleniyor…'
+                                                                : '☆ Favorilere Ekle'}
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -696,8 +1034,245 @@ function ScoutPaneli({ token, kullaniciAdi, rol, onCikis }) {
                 </section>
             )}
 
-=======
->>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
+            {rol === 'Admin' && (
+                <section className="panel scout-panel team-panel">
+                    <div className="scout-panel-head">
+                        <div className="scout-panel-icon team-icon">🛡️</div>
+                        <div>
+                            <div className="panel-title" style={{ padding: 0, border: 'none' }}>Takım Ara</div>
+                            <p className="scout-panel-sub">TheSportsDB üzerinden takım ara, kulüp detaylarına göz at.</p>
+                        </div>
+                    </div>
+
+                    <form className="filter-bar" onSubmit={takimAra} style={{ padding: '18px 26px 0' }}>
+                        <label className="filter-field" style={{ flex: 1 }}>
+                            <span>Takım Adı</span>
+                            <input
+                                value={takimAramaAdi}
+                                onChange={(e) => setTakimAramaAdi(e.target.value)}
+                                placeholder="Takım Adı Gir (Barcelona, Fenerbahçe...)"
+                            />
+                        </label>
+                        <div className="filter-actions">
+                            <button type="submit" className="filter-btn" disabled={takimAraniyor}>
+                                {takimAraniyor ? 'Aranıyor…' : 'Ara'}
+                            </button>
+                        </div>
+                    </form>
+
+                    {takimHata && <div className="auth-error" style={{ margin: '14px 26px 0' }}>{takimHata}</div>}
+
+                    {takimSonuclari.length > 0 && (
+                        <div className="team-result-grid">
+                            {takimSonuclari.map((t) => {
+                                const anaRenk = t.strColour1 ? `#${t.strColour1.replace('#', '')}` : null;
+                                return (
+                                    <div className="team-card" key={t.idTeam}>
+                                        <div
+                                            className="team-card-banner"
+                                            style={{
+                                                backgroundImage: t.strBanner ? `url(${t.strBanner})` : undefined,
+                                                background: !t.strBanner && anaRenk ? anaRenk : undefined,
+                                            }}
+                                        >
+                                            <div className="team-card-banner-veil" />
+                                            {t.strBadge ? (
+                                                <img className="team-badge" src={t.strBadge} alt={t.strTeam} />
+                                            ) : (
+                                                <div className="team-badge team-badge-fallback">🛡️</div>
+                                            )}
+                                        </div>
+
+                                        <div className="team-card-body">
+                                            <div className="team-card-name-row">
+                                                <div className="team-card-name">{t.strTeam}</div>
+                                                <button
+                                                    className="link-btn favori-btn"
+                                                    disabled={favoriKaynakIdleri.has(t.idTeam) || favoriIslemdekiId === t.idTeam}
+                                                    onClick={() => favorilereEkle({
+                                                        Tur: 'Takim',
+                                                        KaynakId: t.idTeam,
+                                                        Isim: t.strTeam,
+                                                        GorselUrl: t.strBadge || null,
+                                                        EkNot: t.strLeague || null,
+                                                    })}
+                                                >
+                                                    {favoriKaynakIdleri.has(t.idTeam)
+                                                        ? '⭐ Favoride'
+                                                        : favoriIslemdekiId === t.idTeam
+                                                            ? 'Ekleniyor…'
+                                                            : '☆ Favorilere Ekle'}
+                                                </button>
+                                            </div>
+                                            <div className="team-card-meta">
+                                                {t.strLeague && <span className="team-chip">{t.strLeague}</span>}
+                                                {t.strCountry && <span className="team-chip">{t.strCountry}</span>}
+                                                {t.intFormedYear && <span className="team-chip">Kuruluş {t.intFormedYear}</span>}
+                                            </div>
+
+                                            {t.strStadium && (
+                                                <div className="team-card-stadium">
+                                                    🏟️ {t.strStadium}
+                                                    {t.intStadiumCapacity && (
+                                                        <span className="team-card-capacity">
+                                                            {Number(t.intStadiumCapacity).toLocaleString('tr-TR')} kişi
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            )}
+
+                                            {t.strDescriptionEN && (
+                                                <p className="team-card-desc">
+                                                    {t.strDescriptionEN.length > 170
+                                                        ? `${t.strDescriptionEN.slice(0, 170)}…`
+                                                        : t.strDescriptionEN}
+                                                </p>
+                                            )}
+
+                                            {(t.strWebsite || t.strYoutube || t.strInstagram) && (
+                                                <div className="team-card-links">
+                                                    {t.strWebsite && (
+                                                        <a
+                                                            className="team-link-chip"
+                                                            href={t.strWebsite.startsWith('http') ? t.strWebsite : `https://${t.strWebsite}`}
+                                                            target="_blank"
+                                                            rel="noreferrer"
+                                                        >
+                                                            🌐 Site
+                                                        </a>
+                                                    )}
+                                                    {t.strInstagram && (
+                                                        <a
+                                                            className="team-link-chip"
+                                                            href={t.strInstagram.startsWith('http') ? t.strInstagram : `https://${t.strInstagram}`}
+                                                            target="_blank"
+                                                            rel="noreferrer"
+                                                        >
+                                                            📷 Instagram
+                                                        </a>
+                                                    )}
+                                                    {t.strYoutube && (
+                                                        <a
+                                                            className="team-link-chip"
+                                                            href={t.strYoutube.startsWith('http') ? t.strYoutube : `https://${t.strYoutube}`}
+                                                            target="_blank"
+                                                            rel="noreferrer"
+                                                        >
+                                                            ▶️ YouTube
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    )}
+                </section>
+            )}
+
+            {rol === 'Admin' && (
+                <section className="panel scout-panel table-panel">
+                    <div className="scout-panel-head">
+                        <div className="scout-panel-icon table-icon">🏆</div>
+                        <div>
+                            <div className="panel-title" style={{ padding: 0, border: 'none' }}>Lig Puan Durumu</div>
+                            <p className="scout-panel-sub">TheSportsDB üzerinden lig ID'siyle güncel puan durumunu getir.</p>
+                        </div>
+                    </div>
+
+                    <form className="filter-bar" onSubmit={puanDurumuGetir} style={{ padding: '18px 26px 0' }}>
+                        <label className="filter-field" style={{ flex: 1 }}>
+                            <span>Lig ID</span>
+                            <input
+                                value={ligIdGirdi}
+                                onChange={(e) => setLigIdGirdi(e.target.value)}
+                                placeholder="Lig ID Gir (Örn: 4328 = Premier Lig)"
+                            />
+                        </label>
+                        <div className="filter-actions">
+                            <button type="submit" className="filter-btn" disabled={puanDurumuAraniyor}>
+                                {puanDurumuAraniyor ? 'Getiriliyor…' : 'Getir'}
+                            </button>
+                        </div>
+                    </form>
+
+                    {puanDurumuHata && <div className="auth-error" style={{ margin: '14px 26px 0' }}>{puanDurumuHata}</div>}
+
+                    {puanDurumu.length > 0 && (
+                        <div className="table-scroll" style={{ marginTop: 18 }}>
+                            <div className="scout-results-label">
+                                {puanDurumu[0]?.strLeague ?? 'Puan Durumu'}
+                                {puanDurumu[0]?.strSeason && (
+                                    <span className="scout-results-season">{puanDurumu[0].strSeason}</span>
+                                )}
+                            </div>
+                            <table className="player-table standings-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Takım</th>
+                                        <th title="Oynanan">O</th>
+                                        <th title="Galibiyet">G</th>
+                                        <th title="Beraberlik">B</th>
+                                        <th title="Mağlubiyet">M</th>
+                                        <th title="Averaj">AV</th>
+                                        <th>Puan</th>
+                                        <th>Form</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {puanDurumu.map((satir) => {
+                                        const sira = Number(satir.intRank);
+                                        return (
+                                            <tr key={satir.idStanding ?? satir.idTeam}>
+                                                <td>
+                                                    <span className={`rank-badge ${sira <= 4 ? 'rank-top' : ''}`}>
+                                                        {satir.intRank}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div className="standings-team">
+                                                        {satir.strBadge ? (
+                                                            <img className="standings-badge" src={satir.strBadge} alt={satir.strTeam} />
+                                                        ) : (
+                                                            <div className="standings-badge standings-badge-fallback">🛡️</div>
+                                                        )}
+                                                        <span className="player-name">{satir.strTeam}</span>
+                                                    </div>
+                                                </td>
+                                                <td>{satir.intPlayed}</td>
+                                                <td>{satir.intWin}</td>
+                                                <td>{satir.intDraw}</td>
+                                                <td>{satir.intLoss}</td>
+                                                <td>{satir.intGoalDifference}</td>
+                                                <td>
+                                                    <span className="points-pill">{satir.intPoints}</span>
+                                                </td>
+                                                <td>
+                                                    <div className="form-dots">
+                                                        {(satir.strForm ?? '').split('').map((harf, i) => (
+                                                            <span
+                                                                key={i}
+                                                                className={`form-dot ${harf === 'W' ? 'form-w' : harf === 'D' ? 'form-d' : harf === 'L' ? 'form-l' : ''}`}
+                                                                title={harf === 'W' ? 'Galibiyet' : harf === 'D' ? 'Beraberlik' : harf === 'L' ? 'Mağlubiyet' : ''}
+                                                            >
+                                                                {harf}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
+                    )}
+                </section>
+            )}
+
             <footer className="dossier-foot">
                 Tüm istekler JWT token ile Authorization başlığında gönderiliyor.
             </footer>

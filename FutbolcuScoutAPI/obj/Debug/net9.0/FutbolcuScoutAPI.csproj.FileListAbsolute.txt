@@ -1,3 +1,12 @@
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.csproj.AssemblyReference.cache
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.AssemblyInfoInputs.cache
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.AssemblyInfo.cs
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.sourcelink.json
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\ClientApp\.oxlintrc.json
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\ClientApp\package-lock.json
@@ -21,19 +30,13 @@ C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuSc
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\Microsoft.OpenApi.dll
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\MongoDB.Bson.dll
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\MongoDB.Driver.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\SharpCompress.dll
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\Snappier.dll
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\ZstdSharp.dll
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.csproj.AssemblyReference.cache
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\rpswa.dswa.cache.json
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.AssemblyInfoInputs.cache
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.AssemblyInfo.cs
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.csproj.CoreCompileInputs.cache
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.sourcelink.json
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\GenericApi.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\GenericApi.pdb
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
@@ -49,9 +52,11 @@ C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuSc
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.pdb
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\FutbolcuScoutAPI.genruntimeconfig.cache
 C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\obj\Debug\net9.0\ref\FutbolcuScoutAPI.dll
-<<<<<<< HEAD
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\Newtonsoft.Json.dll
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\GenericApi.dll
-C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\GenericApi.pdb
-=======
->>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\ClosedXML.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\ClosedXML.Parser.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\DocumentFormat.OpenXml.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\DocumentFormat.OpenXml.Framework.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\ExcelNumberFormat.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\RBush.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\SixLabors.Fonts.dll
+C:\Users\Lenovo\OneDrive\Masaüstü\FutbolcuScoutAPI\FutbolcuScoutAPI\FutbolcuScoutAPI\bin\Debug\net9.0\System.IO.Packaging.dll

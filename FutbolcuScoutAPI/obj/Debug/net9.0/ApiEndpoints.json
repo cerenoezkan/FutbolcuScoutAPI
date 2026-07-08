@@ -32,6 +32,74 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FutbolcuScoutAPI.Controllers.FavoriController",
+    "Method": "Get",
+    "RelativePath": "api/Favori",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbolcuScoutAPI.Controllers.FavoriController",
+    "Method": "Post",
+    "RelativePath": "api/Favori",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "yeniFavori",
+        "Type": "FutbolcuScoutAPI.Models.Favori",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbolcuScoutAPI.Controllers.FavoriController",
+    "Method": "Delete",
+    "RelativePath": "api/Favori/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbolcuScoutAPI.Controllers.FavoriController",
+    "Method": "ExportExcel",
+    "RelativePath": "api/Favori/export",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbolcuScoutAPI.Controllers.FavoriController",
+    "Method": "ImportExcel",
+    "RelativePath": "api/Favori/import",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dosya",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FutbolcuScoutAPI.Controllers.FutbolcuController",
     "Method": "Get",
     "RelativePath": "api/Futbolcu",
@@ -170,7 +238,22 @@
         "StatusCode": 200
       }
     ]
-<<<<<<< HEAD
+  },
+  {
+    "ContainingType": "FutbolcuScoutAPI.Controllers.LeagueTableController",
+    "Method": "GetTable",
+    "RelativePath": "api/LeagueTable/{leagueId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "leagueId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "FutbolcuScoutAPI.Controllers.PlayerSearchController",
@@ -187,7 +270,37 @@
       }
     ],
     "ReturnTypes": []
-=======
->>>>>>> 28f8806a14ea9c12e56af89425a850c709eb7df0
+  },
+  {
+    "ContainingType": "FutbolcuScoutAPI.Controllers.PlayerSearchController",
+    "Method": "ExportPlayer",
+    "RelativePath": "api/PlayerSearch/export/{playerName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "playerName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FutbolcuScoutAPI.Controllers.TeamSearchController",
+    "Method": "GetTeam",
+    "RelativePath": "api/TeamSearch/{teamName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

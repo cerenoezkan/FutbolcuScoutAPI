@@ -6,7 +6,7 @@ namespace FutbolcuScoutAPI.Controllers
 {
     [Route("api/[controller]")] // Adresi: api/PlayerSearch olacak
     [ApiController]
-    public class PlayerSearchController : ControllerBase //MVC/Wew API de miras alınan sınıf -> Ok ve NotFound fonksiyonlarını sağlar 
+    public class PlayerSearchController : ControllerBase //MVC/Web API de miras alınan sınıf -> Ok ve NotFound fonksiyonlarını sağlar 
     {
         // Servis ver onu kullanıcağım demek için: 
         private readonly SportsDbService _sportsDbService;
@@ -30,5 +30,22 @@ namespace FutbolcuScoutAPI.Controllers
             // Oyuncuları başarıyla bulduysak 200 (OK) koduyla listeyi müşteriye sunuyoruz
             return Ok(players); //200 HTTP durum kodları
         }
+
+        [HttpGet("export/{playerName}")] //çalışma olmaması için export/player name kullanıldı 
+            public async Task<IActionResult> ExportPlayer (string playerName)
+        {
+            var players = await _sportsDbService.GetPlayersAsync(playerName);
+            if(players.Count == 0)
+                return NotFound($"'{playerName}' isminde bir oyuncu bulunamadı.");
+
+            var excelHelper = new ExcelHelper();
+            byte[] dosyaIcerigi = excelHelper.ListeyiExcelYap(players, "AramaSonuclari");
+
+            string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            string dosyaAdi = $"arama_{playerName}_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+            return File(dosyaIcerigi, contentType, dosyaAdi);
+        }
+        
     }
 }

@@ -9,6 +9,7 @@ namespace FutbolcuScoutAPI.Services
         private readonly IMongoCollection<Futbolcu> _futbolcuCollection;
         // Önce class'ın en başına User koleksiyonunu tanımla
         private readonly IMongoCollection<User> _userCollection;
+        private readonly IMongoCollection<Favori> _favoriCollection; 
 
         public MongoDBService(IConfiguration configuration)
         {
@@ -29,6 +30,7 @@ namespace FutbolcuScoutAPI.Services
             // Üzerinde işlem yapacağımız futbolcu koleksiyonunu seçiyoruz
             _futbolcuCollection = database.GetCollection<Futbolcu>(collectionName);
             _userCollection = database.GetCollection<User>("Users"); // kodumuzu veritabanındaki Users isimli koleksiyonla el sıkıştırdık.
+            _favoriCollection = database.GetCollection<Favori>("Favoriler");
         }
 
         // 3. Buraya kullanıcı sorgulama metodunu ekledik
@@ -100,6 +102,18 @@ namespace FutbolcuScoutAPI.Services
                 : builder.Empty; //kullanıcı filtre seçmediyse her şeyi getir komutunu veriyoruz 
 
             return await _futbolcuCollection.Find(sonFiltre).ToListAsync(); //elimizde ne istediğimizi tuttuğumuz sonFiltre var , veritabanından sadece buna uyanları getir
+        }
+
+        public async Task<List< Favori>> GetFavorilerAsync() =>
+            await _favoriCollection.Find(_ => true).ToListAsync();
+        public async Task CreateFavoriAsync(Favori yeniFavori) =>
+            await _favoriCollection.InsertOneAsync(yeniFavori);
+        public async Task RemoveFavoriAsync(string id) =>
+            await _favoriCollection.DeleteOneAsync(x => x.Id == id);
+        public async Task<bool> FavoriVarMiAsync(string kaynakId)
+        {
+            var bulunanKayit = await _favoriCollection.Find(x => x.KaynakId == kaynakId).FirstOrDefaultAsync(); //ilk eşlenen kaydı getiri
+            return bulunanKayit != null;
         }
     }
 }
