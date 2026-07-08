@@ -35,15 +35,13 @@ The backend is a **.NET Web API** backed by **MongoDB**, secured with **JWT auth
 
 ## 🖼️ Screenshots
 
-> Add your own screenshots to a `screenshots/` folder in the repo root and update the paths below — GitHub will render them automatically once committed.
-
-| Login | Roster (Admin view) | Favorites & Excel actions |
+| Login | Roster Management | Favorites & Excel Actions |
 |---|---|---|
-| ![Login screen](screenshots/login.png) | ![Admin roster view](screenshots/admin-roster.png) | ![Favorites panel](screenshots/favorites.png) |
+| ![Login Screen](screenshots/giris_ekrani.jpg) | ![Admin Roster View](screenshots/yeni_oyuncu.png) | ![Favorites Panel](screenshots/favorites.png) |
 
-| Player search (TheSportsDB) | League standings |
-|---|---|
-| ![Player search](screenshots/player-search.png) | ![League standings](screenshots/standings.png) |
+| Player Search | Team Details | League Standings |
+|---|---|---|
+| ![Player Search](screenshots/arama.png) | ![Team Search](screenshots/arama2.png) | ![League Standings](screenshots/standings.png) |
 
 ---
 
