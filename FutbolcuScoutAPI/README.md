@@ -184,8 +184,4 @@ Make sure `appsettings.Development.json` (or any file containing real secrets) i
 
 `GenericApi/Services/ExcelHelper.cs` uses C# reflection (`typeof(T).GetProperties()`) so a single implementation can export/import **any** model type — currently used for both `Favori` and TheSportsDB search results — without writing per-model mapping code.
 
----
 
-## 📄 License
-
-This project was developed for educational purposes as part of a university software engineering course.
