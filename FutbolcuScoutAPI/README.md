@@ -37,7 +37,7 @@ The backend is a **.NET Web API** backed by **MongoDB**, secured with **JWT auth
 
 | Login | Roster Management | Favorites & Excel Actions |
 |---|---|---|
-| ![Login Screen](screenshots/giris_ekrani.jpg) | ![Admin Roster View](screenshots/yeni_oyuncu.png) | ![Favorites Panel](screenshots/favorites.png) |
+| ![Login Screen](screenshots/giris_ekrani.png) | ![Admin Roster View](screenshots/yeni_oyuncu.png) | ![Favorites Panel](screenshots/favorites.png) |
 
 | Player Search | Team Details | League Standings |
 |---|---|---|
